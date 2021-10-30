@@ -1,5 +1,5 @@
 author = NotLe0n
-version = 2.1.1.1
+version = 2.1.2
 displayName = No Fishing Quests
 hideCode = false
 hideResources = false

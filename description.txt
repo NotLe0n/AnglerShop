@@ -1,6 +1,9 @@
 Adds a shop button to the Angler. Now you can get your Cell Phone without needing to fish endlessly! For more info visit my homepage!
 
 Changelog:
+v2.1.2
+- Fixed pricing bug
+
 v2.1
 - Removed "New Angler" (may he rest his soul).
 Access the shop through the normal angler now.

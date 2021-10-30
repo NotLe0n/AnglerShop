@@ -34,8 +34,11 @@ namespace NoFishingQuests
         {
             _lastUpdateUiGameTime = gameTime;
 
+            // if the player is talking to the Angler and the new shop isn't opened
             if (Main.LocalPlayer.talkNPC != -1 && Main.npc[Main.LocalPlayer.talkNPC].type == NPCID.Angler && Main.npcShop != 99)
+            {
                 UserInterface.Update(gameTime);
+            }
         }
 
         public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
@@ -47,8 +50,11 @@ namespace NoFishingQuests
                     "NoFishingQuests: UI",
                     delegate
                     {
+                        // if the player is talking to the Angler and the new shop isn't opened
                         if (Main.LocalPlayer.talkNPC != -1 && Main.npc[Main.LocalPlayer.talkNPC].type == NPCID.Angler && Main.npcShop != 99)
+                        {
                             UserInterface.Draw(Main.spriteBatch, _lastUpdateUiGameTime);
+                        }
                         return true;
                     }, InterfaceScaleType.UI));
             }
