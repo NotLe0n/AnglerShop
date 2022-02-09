@@ -1,3 +1,3 @@
-namespace NoFishingQuests {
-    class NoFishingQuests : Terraria.ModLoader.Mod { }
-}
+namespace NoFishingQuests;
+
+internal class NoFishingQuests : Terraria.ModLoader.Mod { }
