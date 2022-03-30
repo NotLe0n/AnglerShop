@@ -95,7 +95,7 @@ internal class NoFishingQuestsUI : UIState
 	}
 
 	// copied from Main.OpenShop (except the line with the comment)
-	private static void OpenShop(int shopIndex)
+	internal static void OpenShop(int shopIndex)
 	{
 		Main.playerInventory = true;
 		Main.stackSplit = 9999;
