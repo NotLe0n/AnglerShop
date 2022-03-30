@@ -43,21 +43,21 @@ internal class NoFishingQuestsUI : UIState
 		Vector2 position = new(posButton4, 130 + numLines * 30);
 
 		// if the player is hovering over the button
-		if (Main.MouseScreen.Between(position, position + stringSize * scale * value2.X) && !PlayerInput.IgnoreMouseInterface)
-		{
+		if (Main.MouseScreen.Between(position, position + stringSize * scale * value2.X) && !PlayerInput.IgnoreMouseInterface) {
 			Main.LocalPlayer.mouseInterface = true;
 			Main.LocalPlayer.releaseUseItem = false;
 			scale *= 1.2f; // make button bigger
 
-			if (!focused)
+			if (!focused) {
 				SoundEngine.PlaySound(SoundID.MenuTick);
+			}
 
 			focused = true;
 		}
-		else
-		{
-			if (focused)
+		else {
+			if (focused) {
 				SoundEngine.PlaySound(SoundID.MenuTick);
+			}
 
 			focused = false;
 		}
@@ -88,8 +88,7 @@ internal class NoFishingQuestsUI : UIState
 		base.Update(gameTime);
 
 		// if the shop button is clicked
-		if (focused && Main.mouseLeft)
-		{
+		if (focused && Main.mouseLeft) {
 			OpenShop(99);
 		}
 	}
@@ -115,8 +114,7 @@ internal class NoFishingQuestsUI : UIState
 								ItemID.SeaweedPlanter, ItemID.PillaginMePixels, ItemID.CompassRose, ItemID.ShipsWheel, ItemID.ShipInABottle, ItemID.LifePreserver, ItemID.WallAnchor, ItemID.None, ItemID.None, ItemID.None, ItemID.None };
 
 		// some items are only sold if WoF has been defeated
-		if (Main.hardMode)
-		{
+		if (Main.hardMode) {
 			itemids[^4] = ItemID.FinWings;
 			itemids[^3] = ItemID.BottomlessBucket;
 			itemids[^2] = ItemID.SuperAbsorbantSponge;
@@ -124,13 +122,11 @@ internal class NoFishingQuestsUI : UIState
 		}
 
 		// add items to the list
-		for (int i = 0; i < itemids.Length; i++)
-		{
+		for (int i = 0; i < itemids.Length; i++) {
 			shop.item[i].SetDefaults(itemids[i]);
 			shop.item[i].isAShopItem = true;
 
-			if (itemids[i] is ItemID.ApprenticeBait or ItemID.JourneymanBait or ItemID.MasterBait)
-			{
+			if (itemids[i] is ItemID.ApprenticeBait or ItemID.JourneymanBait or ItemID.MasterBait) {
 				shop.item[i].value *= 2;
 			}
 		}
