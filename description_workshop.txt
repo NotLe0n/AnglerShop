@@ -1,0 +1,31 @@
+[h1]No Fishing Quests[/h1]
+This mod adds a shop button to the Angler NPC. Now you can get your Cell Phone without needing to fish endlessly!
+The Quest button is still there if you'd like to fish.
+
+If you have any problems, bugs, or suggestions contact me on my [url=https://discord.gg/NX4DVzz2v6]discord[/url]!
+
+[h2]Special Thanks:[/h2]
+[b]Crapsky233[/b] for adding support for the "Dialogue Panel Rework" mod!
+
+[h2]Recent Changes:[/h2]
+[h3]v2.2[/h3]
+[list]
+[*] Added support for the "Dialogue Panel Rework" mod (thanks Crapsky233)
+[*] Update to dotnet 6
+[/list]
+
+[h3]v2.1.2[/h3]
+[list]
+[*] Fixed pricing bug
+[/list]
+
+[h3]v2.1[/h3]
+[list]
+[*] Removed "New Angler" (may he rest his soul).
+Access the shop through the normal angler now.
+[/list]
+
+[h3]v2.0[/h3]
+[list]
+[*] Updated to 1.4
+[/list]
