@@ -1,9 +1,16 @@
-Adds a shop button to the Angler. Now you can get your Cell Phone without needing to fish endlessly! For more info visit my homepage!
+Angler Shop (formally "No Fishing Quests"), Adds a shop button to the Angler. Now you can get your Cell Phone without needing to fish endlessly! For more info visit my homepage!
+
+The items Fin Wings, Bottomless Water Bucket, Super Absorbant Sponge, and Hotline Fishing Hook 
+are only available once in hardmode - just like fishing quest rewards.
 
 Special Thanks:
 Crapsky233 for adding support for the "Dialogue Panel Rework" mod!
 
 Recent Changes:
+v2.2.1
+- Changed name, description and Icon
+- Some bug fixes
+
 v2.2
 - Added support for the "Dialogue Panel Rework" mod (thanks Crapsky233)
 - Update to dotnet 6

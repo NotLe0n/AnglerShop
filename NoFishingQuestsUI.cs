@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Reflection;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -14,7 +15,7 @@ namespace NoFishingQuests;
 internal class NoFishingQuestsUI : UIState
 {
 	// Main._textDisplayCache
-	private static object TextDisplayCache => typeof(Main).GetField("_textDisplayCache", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).GetValue(Main.instance);
+	private static object TextDisplayCache => typeof(Main).GetField("_textDisplayCache", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(Main.instance);
 	private bool focused; // true if the shop button is hovered
 
 	public override void Draw(SpriteBatch spriteBatch)
@@ -25,9 +26,8 @@ internal class NoFishingQuestsUI : UIState
 
 		Vector2 scale = new(0.9f); // scale of the button
 		string text = Language.GetTextValue("LegacyInterface.28"); // "Shop"
-																   // How long the npc text is (varies with language)
-		int numLines = (int)TextDisplayCache.GetType().GetProperty("AmountOfLines", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public).GetValue(TextDisplayCache) + 1;
-		Color col = new(228, 206, 114, Main.mouseTextColor / 2); // color of the button text
+		// How long the npc text is (varies with language)
+		int numLines = (int)TextDisplayCache.GetType().GetProperty("AmountOfLines", BindingFlags.Instance | BindingFlags.Public).GetValue(TextDisplayCache);
 		Vector2 stringSize = ChatManager.GetStringSize(FontAssets.MouseText.Value, text, scale); // size of "Shop" with scale 0.9
 
 		// vanilla did that, idk
@@ -64,23 +64,23 @@ internal class NoFishingQuestsUI : UIState
 
 		// draw button shadow
 		ChatManager.DrawColorCodedStringShadow(spriteBatch: spriteBatch,
-											   font: FontAssets.MouseText.Value,
-											   text: text,
-											   position: position + stringSize * value2 * 0.5f,
-											   baseColor: (!focused) ? Color.Black : Color.Brown,
-											   rotation: 0f,
-											   origin: stringSize * 0.5f,
-											   baseScale: scale * value2);
+			font: FontAssets.MouseText.Value,
+			text: text,
+			position: position + stringSize * value2 * 0.5f,
+			baseColor: (!focused) ? Color.Black : Color.Brown,
+			rotation: 0f,
+			origin: stringSize * 0.5f,
+			baseScale: scale * value2);
 
 		// draw button text
 		ChatManager.DrawColorCodedString(spriteBatch: spriteBatch,
-										 font: FontAssets.MouseText.Value,
-										 text: text,
-										 position: position + stringSize * value2 * 0.5f,
-										 baseColor: !focused ? col : Main.OurFavoriteColor,
-										 rotation: 0f,
-										 origin: stringSize * 0.5f,
-										 baseScale: scale);
+			font: FontAssets.MouseText.Value,
+			text: text,
+			position: position + stringSize * value2 * 0.5f,
+			baseColor: !focused ? new Color(228, 206, 114, Main.mouseTextColor / 2) : new Color(255, 231, 69), // color of the button text
+			rotation: 0f,
+			origin: stringSize * 0.5f,
+			baseScale: scale);
 	}
 
 	public override void Update(GameTime gameTime)
@@ -108,10 +108,12 @@ internal class NoFishingQuestsUI : UIState
 	private static void SetupShop(Chest shop)
 	{
 		// all items being sold:
-		short[] itemids = { ItemID.SonarPotion, ItemID.FishingPotion, ItemID.CratePotion, ItemID.ApprenticeBait, ItemID.JourneymanBait, ItemID.MasterBait, ItemID.FuzzyCarrot, ItemID.AnglerHat, ItemID.AnglerVest, ItemID.AnglerPants,
-								ItemID.GoldenFishingRod, ItemID.GoldenBugNet, ItemID.FishHook, ItemID.HighTestFishingLine, ItemID.AnglerEarring, ItemID.TackleBox, ItemID.FishermansGuide, ItemID.WeatherRadio, ItemID.Sextant, ItemID.SeashellHairpin,
-								ItemID.MermaidAdornment, ItemID.MermaidTail, ItemID.FishCostumeMask, ItemID.FishCostumeShirt, ItemID.FishCostumeFinskirt, ItemID.BunnyfishTrophy, ItemID.GoldfishTrophy, ItemID.SharkteethTrophy, ItemID.TreasureMap,
-								ItemID.SeaweedPlanter, ItemID.PillaginMePixels, ItemID.CompassRose, ItemID.ShipsWheel, ItemID.ShipInABottle, ItemID.LifePreserver, ItemID.WallAnchor, ItemID.None, ItemID.None, ItemID.None, ItemID.None };
+		short[] itemids = {
+			ItemID.SonarPotion, ItemID.FishingPotion, ItemID.CratePotion, ItemID.ApprenticeBait, ItemID.JourneymanBait, ItemID.MasterBait, ItemID.FuzzyCarrot, ItemID.AnglerHat, ItemID.AnglerVest, ItemID.AnglerPants,
+			ItemID.GoldenFishingRod, ItemID.GoldenBugNet, ItemID.FishHook, ItemID.HighTestFishingLine, ItemID.AnglerEarring, ItemID.TackleBox, ItemID.FishermansGuide, ItemID.WeatherRadio, ItemID.Sextant, ItemID.SeashellHairpin,
+			ItemID.MermaidAdornment, ItemID.MermaidTail, ItemID.FishCostumeMask, ItemID.FishCostumeShirt, ItemID.FishCostumeFinskirt, ItemID.BunnyfishTrophy, ItemID.GoldfishTrophy, ItemID.SharkteethTrophy, ItemID.TreasureMap,
+			ItemID.SeaweedPlanter, ItemID.PillaginMePixels, ItemID.CompassRose, ItemID.ShipsWheel, ItemID.ShipInABottle, ItemID.LifePreserver, ItemID.WallAnchor, ItemID.None, ItemID.None, ItemID.None, ItemID.None
+		};
 
 		// some items are only sold if WoF has been defeated
 		if (Main.hardMode) {
