@@ -108,28 +108,66 @@ internal class NoFishingQuestsUI : UIState
 	private static void SetupShop(Chest shop)
 	{
 		// all items being sold:
-		short[] itemids = {
-			ItemID.SonarPotion, ItemID.FishingPotion, ItemID.CratePotion, ItemID.ApprenticeBait, ItemID.JourneymanBait, ItemID.MasterBait, ItemID.FuzzyCarrot, ItemID.AnglerHat, ItemID.AnglerVest, ItemID.AnglerPants,
-			ItemID.GoldenFishingRod, ItemID.GoldenBugNet, ItemID.FishHook, ItemID.HighTestFishingLine, ItemID.AnglerEarring, ItemID.TackleBox, ItemID.FishermansGuide, ItemID.WeatherRadio, ItemID.Sextant, ItemID.SeashellHairpin,
-			ItemID.MermaidAdornment, ItemID.MermaidTail, ItemID.FishCostumeMask, ItemID.FishCostumeShirt, ItemID.FishCostumeFinskirt, ItemID.BunnyfishTrophy, ItemID.GoldfishTrophy, ItemID.SharkteethTrophy, ItemID.TreasureMap,
-			ItemID.SeaweedPlanter, ItemID.PillaginMePixels, ItemID.CompassRose, ItemID.ShipsWheel, ItemID.ShipInABottle, ItemID.LifePreserver, ItemID.WallAnchor, ItemID.None, ItemID.None, ItemID.None, ItemID.None
+		(short id, int price)[] items = {
+			(ItemID.SonarPotion, 2),
+			(ItemID.FishingPotion, 2),
+			(ItemID.CratePotion, 2),
+			(ItemID.ApprenticeBait, 3),
+			(ItemID.JourneymanBait, 10),
+			(ItemID.MasterBait, 15),
+			(ItemID.FuzzyCarrot, 10),
+			(ItemID.AnglerHat, 8),
+			(ItemID.AnglerVest, 8),
+			(ItemID.AnglerPants, 8),
+			(ItemID.FishHook, 30),
+			(ItemID.GoldenFishingRod, 50),
+			(ItemID.GoldenBugNet, 50),
+			(ItemID.HighTestFishingLine, 8),
+			(ItemID.AnglerEarring, 8),
+			(ItemID.TackleBox, 8),
+			(ItemID.FishermansGuide, 15),
+			(ItemID.WeatherRadio, 15),
+			(ItemID.Sextant, 15),
+			(ItemID.SeashellHairpin, 4),
+			(ItemID.MermaidAdornment, 4),
+			(ItemID.MermaidTail, 4),
+			(ItemID.FishCostumeMask, 4),
+			(ItemID.FishCostumeShirt, 4),
+			(ItemID.FishCostumeFinskirt, 4),
+			(ItemID.BunnyfishTrophy, 1),
+			(ItemID.GoldfishTrophy, 1),
+			(ItemID.SharkteethTrophy, 1),
+			(ItemID.TreasureMap, 1),
+			(ItemID.SeaweedPlanter, 1),
+			(ItemID.PillaginMePixels, 1),
+			(ItemID.CompassRose, 1),
+			(ItemID.ShipsWheel, 1),
+			(ItemID.ShipInABottle, 1),
+			(ItemID.LifePreserver, 1),
+			(ItemID.WallAnchor, 1),
+			(ItemID.BottomlessBucket, 40),
+			(ItemID.SuperAbsorbantSponge, 40),
+			(ItemID.FinWings, 40),
+			(ItemID.HotlineFishingHook, 40)
 		};
 
 		// some items are only sold if WoF has been defeated
-		if (Main.hardMode) {
-			itemids[^4] = ItemID.FinWings;
-			itemids[^3] = ItemID.BottomlessBucket;
-			itemids[^2] = ItemID.SuperAbsorbantSponge;
-			itemids[^1] = ItemID.HotlineFishingHook;
+		if (!Main.hardMode) {
+			items[^1].id = ItemID.None;
+			items[^2].id = ItemID.None;
 		}
 
 		// add items to the list
-		for (int i = 0; i < itemids.Length; i++) {
-			shop.item[i].SetDefaults(itemids[i]);
+		for (int i = 0; i < items.Length; i++) {
+			shop.item[i].SetDefaults(items[i].id);
 			shop.item[i].isAShopItem = true;
-
-			if (itemids[i] is ItemID.ApprenticeBait or ItemID.JourneymanBait or ItemID.MasterBait) {
-				shop.item[i].value *= 2;
+			shop.item[i].shopCustomPrice = items[i].price;
+			
+			if (Config.Instance.useCustomCurrency) {
+				shop.item[i].shopSpecialCurrency = AnglerCoin.Id;
+			}
+			else {
+				shop.item[i].shopCustomPrice *= 6700;
 			}
 		}
 	}

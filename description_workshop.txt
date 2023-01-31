@@ -8,6 +8,8 @@ If you have any problems, bugs, or suggestions contact me on my [url=https://dis
 
 [h2]Special Thanks:[/h2]
 [b]Crapsky233[/b] for adding support for the "Dialogue Panel Rework" mod!
+[b]Æterna[/b] for the Angler Coin sprite!
+[b]RighteousRyan[/b] for giving me code that allows the angler coin to be placed into the coin slot! 
 
 [h2]Recent Changes:[/h2]
 

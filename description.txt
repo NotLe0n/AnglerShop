@@ -5,6 +5,8 @@ are only available once in hardmode - just like fishing quest rewards.
 
 Special Thanks:
 Crapsky233 for adding support for the "Dialogue Panel Rework" mod!
+Æterna for the Angler Coin sprite!
+RighteousRyan for giving me code that allows the angler coin to be placed into the coin slot! 
 
 Recent Changes:
 v2.2.1
