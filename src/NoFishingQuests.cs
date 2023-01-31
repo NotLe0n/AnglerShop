@@ -26,7 +26,7 @@ internal class NoFishingQuests : Mod
 		}
 
 		int type = ModContent.ItemType<AnglerCoinItem>();
-		int stack = Main.rand.Next(1, 4);
+		int stack = Main.rand.Next(1, 5);
 		int index = Item.NewItem(new EntitySource_Gift(angler), (int)self.position.X, (int)self.position.Y,
 			self.width, self.height, type, stack, false, 0, true);
 

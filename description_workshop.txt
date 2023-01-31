@@ -1,8 +1,11 @@
 [h1]Angler Shop (formally "No Fishing Quests")[/h1]
 This mod adds a shop button to the Angler NPC. Now you can get your Cell Phone without needing to fish endlessly!
-The Quest button is still there if you'd like to fish.
+The Quest button is still there.
 
-The items Fin Wings, Bottomless Water Bucket, Super Absorbant Sponge, and Hotline Fishing Hook are only available once in hardmode - just like fishing quest rewards.
+If you still like to complete quests but also want to be able to buy the items, you can toggle a setting in the mod Conig.
+This will enable a custom currency that the Angler shop uses and which you can get by completing fishing quests (1-4 per quest).
+
+The items Fin Wings and Hotline Fishing Hook are only available once in hardmode - just like fishing quest rewards.
 
 If you have any problems, bugs, or suggestions contact me on my [url=https://discord.gg/NX4DVzz2v6]discord[/url]!
 
@@ -12,6 +15,10 @@ If you have any problems, bugs, or suggestions contact me on my [url=https://dis
 [b]RighteousRyan[/b] for giving me code that allows the angler coin to be placed into the coin slot! 
 
 [h2]Recent Changes:[/h2]
+[h3]v2.3[/h3]
+[list]
+[*] Added a toggleable custom currency, which you get by completing angler quests (1-4 per quest)
+[/list]
 
 [h3]v2.2.1[/h3]
 [list]
