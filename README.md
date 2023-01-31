@@ -7,9 +7,9 @@ The items Fin Wings, and Hotline Fishing Hook are only available once in hardmod
 If you have any problems, bugs, or suggestions contact me on my [discord](https://discord.gg/NX4DVzz2v6)!
 
 ## Special Thanks:
-**Crapsky233** for adding support for the "Dialogue Panel Rework" mod!
-**Æterna** for the Angler Coin sprite!
-**RighteousRyan** for giving me code that allows the angler coin to be placed into the coin slot!
+- **Crapsky233** for adding support for the "Dialogue Panel Rework" mod!
+- **Æterna** for the Angler Coin sprite!
+- **RighteousRyan** for giving me code that allows the angler coin to be placed into the coin slot!
 
 ## Recent Changes:
 ### v2.3
