@@ -8,6 +8,7 @@ This will enable a custom currency that the Angler shop uses and which you can g
 The items Fin Wings and Hotline Fishing Hook are only available once in hardmode - just like fishing quest rewards.
 
 If you have any problems, bugs, or suggestions contact me on my [url=https://discord.gg/NX4DVzz2v6]discord[/url]!
+This mod is open source on [url=https://github.com/NotLe0n/AnglerShop]GitHub[/url]. If you have a GitHub account, please give it a star!
 
 [h2]Special Thanks:[/h2]
 [b]Crapsky233[/b] for adding support for the "Dialogue Panel Rework" mod!
