@@ -1,9 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Mono.Cecil.Cil;
-using MonoMod.Cil;
-using MonoMod.RuntimeDetour.HookGen;
-using System;
-using System.Reflection;
 using Terraria.GameContent.UI;
 
 namespace NoFishingQuests;

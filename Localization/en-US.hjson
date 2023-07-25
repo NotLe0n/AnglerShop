@@ -1,0 +1,21 @@
+Mods: {
+	NoFishingQuests: {
+		Items: {
+			AnglerCoinItem: {
+				DisplayName: Angler Coin
+				Tooltip: The currency to buy items from the Angler's Shop.
+			}
+		}
+
+		Configs: {
+			Config: {
+				useCustomCurrency: {
+					Label: Use custom currency
+					Tooltip: Toggles if the angler's shop should use a custom currency or normal coins.
+				}
+
+				DisplayName: Config
+			}
+		}
+	}
+}

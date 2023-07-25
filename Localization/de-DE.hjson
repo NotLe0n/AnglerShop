@@ -1,0 +1,21 @@
+Mods: {
+	NoFishingQuests: {
+		Items: {
+			AnglerCoinItem: {
+				DisplayName: Angler Münze
+				Tooltip: Die Währung um vom Angler kaufen zu können.
+			}
+		}
+
+		Configs: {
+			Config: {
+				useCustomCurrency: {
+					Label: Angler Münzen benutzen
+					Tooltip: Ob der Anglerladen normale Münzen oder seine eigenen verwenden soll.
+				}
+
+				DisplayName: Einstellungen
+			}
+		}
+	}
+}

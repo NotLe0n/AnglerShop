@@ -8,8 +8,7 @@ public class AnglerCoinItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		Tooltip.SetDefault("The currency to buy items from the Angler's Shop");
-		CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
+		CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 10;
 	}
 
 	public override void SetDefaults()
@@ -24,10 +23,10 @@ public class AnglerCoinItem : ModItem
 
 	public override void Load()
 	{
-		On.Terraria.UI.ItemSlot.PickItemMovementAction += AllowCoinSlotPlacement;
+		Terraria.UI.On_ItemSlot.PickItemMovementAction += AllowCoinSlotPlacement;
 	}
 
-	private int AllowCoinSlotPlacement(On.Terraria.UI.ItemSlot.orig_PickItemMovementAction orig, Item[] inv, int context, int slot, Item checkItem)
+	private int AllowCoinSlotPlacement(Terraria.UI.On_ItemSlot.orig_PickItemMovementAction orig, Item[] inv, int context, int slot, Item checkItem)
 	{
 		if (context == 1 && checkItem.type == ModContent.ItemType<AnglerCoinItem>()) {
 			return 0;

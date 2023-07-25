@@ -15,6 +15,9 @@ Leave a comment or contact me on my discord if you have any problems: [c/8ab4f8:
 This mod is open source on GitHub. If you have a GitHub account, please give it a star! (link is the homepage button)
 
 Recent Changes:
+v2.4
+- Updated to 1.4.4
+
 v2.3
 - Added a toggleable custom currency, which you get by completing angler quests (1-4 per quest)
 

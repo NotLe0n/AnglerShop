@@ -10,24 +10,24 @@ namespace NoFishingQuests;
 
 internal class UISystem : ModSystem
 {
-	internal UserInterface UserInterface;
-	private UIState UI;
+	private UserInterface userInterface;
+	private UIState anglerShopUI;
 	private static bool dialogueTweakLoaded = false;
 
 	public override void Load()
 	{
 		if (!Main.dedServ) {
-			UI = new NoFishingQuestsUI();
-			UI.Activate();
-			UserInterface = new UserInterface();
-			UserInterface.SetState(UI);
+			anglerShopUI = new AnglerShopUI();
+			anglerShopUI.Activate();
+			userInterface = new UserInterface();
+			userInterface.SetState(anglerShopUI);
 		}
 	}
 
 	public override void Unload()
 	{
-		UI = null;
-		UserInterface = null;
+		anglerShopUI = null;
+		userInterface = null;
 	}
 
 	public override void PostSetupContent()
@@ -41,7 +41,7 @@ internal class UISystem : ModSystem
 				() =>
 				{
 					if (Main.mouseLeft)
-						NoFishingQuestsUI.OpenShop(99);
+						AnglerShopUI.OpenShop();
 				});
 		}
 	}
@@ -53,7 +53,7 @@ internal class UISystem : ModSystem
 
 		// if the player is talking to the Angler and the new shop isn't opened
 		if (Main.LocalPlayer.talkNPC != -1 && Main.npc[Main.LocalPlayer.talkNPC].type == NPCID.Angler && Main.npcShop != 99) {
-			UserInterface.Update(gameTime);
+			userInterface.Update(gameTime);
 		}
 	}
 
@@ -62,12 +62,12 @@ internal class UISystem : ModSystem
 		int mouseTextIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Mouse Text"));
 		if (mouseTextIndex != -1) {
 			layers.Insert(mouseTextIndex, new LegacyGameInterfaceLayer(
-				"NoFishingQuests: UI",
+				"AnglerShop: UI",
 				delegate
 				{
 					// if the player is talking to the Angler, the new shop isn't opened and dialogue tweak mod isn't active.
 					if (Main.LocalPlayer.talkNPC != -1 && Main.npc[Main.LocalPlayer.talkNPC].type == NPCID.Angler && Main.npcShop != 99 && !dialogueTweakLoaded) {
-						UserInterface.Draw(Main.spriteBatch, _lastUpdateUiGameTime);
+						userInterface.Draw(Main.spriteBatch, _lastUpdateUiGameTime);
 					}
 					return true;
 				}, InterfaceScaleType.UI));

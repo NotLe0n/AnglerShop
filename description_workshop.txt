@@ -16,6 +16,11 @@ This mod is open source on [url=https://github.com/NotLe0n/AnglerShop]GitHub[/ur
 [b]RighteousRyan[/b] for giving me code that allows the angler coin to be placed into the coin slot! 
 
 [h2]Recent Changes:[/h2]
+[h3]v2.4[/h3]
+[list]
+[*] Updated to 1.4.4
+[/list]
+
 [h3]v2.3[/h3]
 [list]
 [*] Added a toggleable custom currency, which you get by completing angler quests (1-4 per quest)
