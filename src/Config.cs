@@ -25,7 +25,7 @@ public class Config : ModConfig
 	
 	[DefaultValue(2)]
 	[Slider]
-	[Range(0.5f, 4f)]
+	[Range(0.5f, 10f)]
 	[ReloadRequired]
 	public float goldMultiplier;
 

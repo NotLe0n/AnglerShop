@@ -1,5 +1,5 @@
 author = NotLe0n
-version = 3.2.0.4
+version = 3.2.0.5
 displayName = Angler Shop
 hideCode = false
 hideResources = false
